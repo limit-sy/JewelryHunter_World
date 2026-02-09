@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public enum GameState           // ゲームの状態
 {
@@ -13,6 +14,8 @@ public class GameManager : MonoBehaviour
 
     // ゲームの状態
     public static GameState gameState;
+    public string nextSceneName;            // 次のシーン名
+
     void Start()
     {
         gameState = GameState.InGame;
@@ -22,5 +25,17 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    //リスタート
+    public void Restart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    //次へ
+    public void Next()
+    {
+        SceneManager.LoadScene(nextSceneName);
     }
 }
