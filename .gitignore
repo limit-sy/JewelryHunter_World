@@ -105,5 +105,7 @@ Assets/Sounds
 Assets/Fonts
 Assets/MyAssets
 Assets/SunnyLand Artwork
+/ProjectSettings/EditorBuildSettings.asset
+/ProjectSettings/ShaderGraphSettings.asset
 
 UserSettings/
