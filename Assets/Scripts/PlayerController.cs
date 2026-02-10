@@ -149,6 +149,12 @@ public class PlayerController : MonoBehaviour
         rbody.linearVelocity = new Vector2(0, 0);           // 速度を0にして強制停止
     }
 
+    //プレイヤーのaxisH()の値を取得
+    public float GetAxisH()
+    {
+        return axisH;
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
 
