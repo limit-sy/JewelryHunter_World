@@ -95,11 +95,11 @@ public class PlayerController : MonoBehaviour
         {
             return;     // FixedUpdateを中断
         }
-        if (onGround || axisH != 0) // 地面の上 or 速度が 0 ではない
-        {
+        //if (onGround || axisH != 0) // 地面の上 or 速度が 0 ではない
+        //{
             // 速度を更新する
             rbody.linearVelocity = new Vector2(axisH * speed, rbody.linearVelocity.y);
-        }
+        //}
         if (onGround && goJump)     // 地面の上でジャンプキーが押された
         {
             // ジャンプさせる
