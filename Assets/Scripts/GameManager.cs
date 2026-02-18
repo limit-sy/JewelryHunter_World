@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -27,10 +28,33 @@ public class GameManager : MonoBehaviour
     // スコア追加
     public static int totalScore;   // 合計スコア
 
-    void Start()
+    // ワールドマップで最後に入ったエントランスのドア番号
+    public static int currentDoorNumber = 0;
+
+    // 所持アイテム 鍵の管理
+    public static int keys = 1;
+    // 度のステージのカギが入手済みかを管理
+    public static Dictionary<string, bool> keyGot;  // シーン名、true/false
+    // 所持アイテム 矢の管理
+    public static int arrows = 10;
+
+    void Awake()
     {
         gameState = GameState.InGame;
         soundPlayer = GetComponent<AudioSource>();  // AudioSource を取得する
+
+        // keyGotが何もない状態だった時のみ初期化
+        if(keyGot == null)
+        {
+            keyGot = new Dictionary<string, bool>();
+        }
+
+        // もしも現シーン名がDictionary(keyGot)に登録されていなければ
+        if(!(keyGot.ContainsKey(SceneManager.GetActiveScene().name)))
+        {
+            // Dictionary(keyGot)に登録しておく(現シーン名,鍵の取得情報false)
+            keyGot.Add(SceneManager.GetActiveScene().name, false);
+        }
     }
 
     // Update is called once per frame

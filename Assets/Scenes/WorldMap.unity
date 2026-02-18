@@ -2491,8 +2491,8 @@ Tilemap:
   - first: {x: -9, y: -11, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 1
-      m_TileSpriteIndex: 1
+      m_TileIndex: 12
+      m_TileSpriteIndex: 7
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -16202,7 +16202,7 @@ Tilemap:
   m_TileAssetArray:
   - m_RefCount: 700
     m_Data: {fileID: 11400000, guid: 67772e15085201345abcf66c4169dd1a, type: 2}
-  - m_RefCount: 389
+  - m_RefCount: 388
     m_Data: {fileID: 11400000, guid: 9b7cdf138baec2e43a995dd170a672e9, type: 2}
   - m_RefCount: 227
     m_Data: {fileID: 11400000, guid: d847b17cca0e5904783d35337790b1a9, type: 2}
@@ -16224,7 +16224,7 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: 13efdc7602c49c84d89d961fdf87a618, type: 2}
   - m_RefCount: 2
     m_Data: {fileID: 11400000, guid: 2e566b2b80ac43343bb4699fb563bb85, type: 2}
-  - m_RefCount: 42
+  - m_RefCount: 43
     m_Data: {fileID: 11400000, guid: 94dbe0ce2c694e249b17080106e75716, type: 2}
   - m_RefCount: 4
     m_Data: {fileID: 11400000, guid: a49e244057905f743879616b8613d863, type: 2}
@@ -16237,7 +16237,7 @@ Tilemap:
   m_TileSpriteArray:
   - m_RefCount: 700
     m_Data: {fileID: 8537651536920830917, guid: 7138b07ebd5f59249a7809fea7208b4d, type: 3}
-  - m_RefCount: 389
+  - m_RefCount: 388
     m_Data: {fileID: -1777838256, guid: 7138b07ebd5f59249a7809fea7208b4d, type: 3}
   - m_RefCount: 227
     m_Data: {fileID: 1826745425, guid: 7138b07ebd5f59249a7809fea7208b4d, type: 3}
@@ -16249,7 +16249,7 @@ Tilemap:
     m_Data: {fileID: 917764035, guid: 7138b07ebd5f59249a7809fea7208b4d, type: 3}
   - m_RefCount: 17
     m_Data: {fileID: 778963522, guid: 7138b07ebd5f59249a7809fea7208b4d, type: 3}
-  - m_RefCount: 42
+  - m_RefCount: 43
     m_Data: {fileID: 1183580822, guid: 7138b07ebd5f59249a7809fea7208b4d, type: 3}
   - m_RefCount: 2
     m_Data: {fileID: 2092633248, guid: 7138b07ebd5f59249a7809fea7208b4d, type: 3}
@@ -16642,6 +16642,9 @@ GameObject:
   - component: {fileID: 1061176030}
   - component: {fileID: 1061176029}
   - component: {fileID: 1061176028}
+  - component: {fileID: 1061176033}
+  - component: {fileID: 1061176032}
+  - component: {fileID: 1061176031}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -16692,7 +16695,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 5.0526314
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -16723,6 +16726,86 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1061176031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1061176027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b133e5e98f3bab4faac93c7b6d1f52f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+--- !u!114 &1061176032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1061176027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c88f5cead0c0b2a4eb05b5900433f8d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.2D.Runtime::UnityEngine.Rendering.Universal.PixelPerfectCamera
+  m_ComponentVersion: 1
+  m_AssetsPPU: 19
+  m_RefResolutionX: 320
+  m_RefResolutionY: 180
+  m_CropFrame: 0
+  m_GridSnapping: 0
+  m_FilterMode: 0
+  m_UpscaleRT: 0
+  m_PixelSnapping: 0
+  m_CropFrameX: 0
+  m_CropFrameY: 0
+  m_StretchFill: 0
+--- !u!114 &1061176033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1061176027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.UniversalAdditionalCameraData
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_AllowHDROutput: 1
+  m_UseScreenCoordOverride: 0
+  m_ScreenSizeOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_ScreenCoordScaleBias: {x: 0, y: 0, z: 0, w: 0}
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_TaaSettings:
+    m_Quality: 3
+    m_FrameInfluence: 0.1
+    m_JitterScale: 1
+    m_MipBias: 0
+    m_VarianceClampScale: 0.9
+    m_ContrastAdaptiveSharpening: 0
+  m_Version: 2
 --- !u!1 &2052014472
 GameObject:
   m_ObjectHideFlags: 0
