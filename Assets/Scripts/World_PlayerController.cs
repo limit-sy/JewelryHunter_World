@@ -16,6 +16,18 @@ public class World_PlayerController : MonoBehaviour
     float angleZ;   // Playerの向き
     Rigidbody2D rbody;
     Animator animator;
+    bool isActionButtonPressed;     // アクションボタンが押されたらtrue
+
+    public bool IsActionButtonPressed   // 同名の変数のプロパティ
+    {
+        get { return isActionButtonPressed; }
+        set { isActionButtonPressed = value; }
+    }
+
+    void OnActionButton(InputValue value)
+    {
+        IsActionButtonPressed = value.isPressed; // ボタンが押され続けている間はtrue
+    }
 
     // InputSystemの入力値を変数moveVecにVector2形式で代入
     void OnMove(InputValue value)
