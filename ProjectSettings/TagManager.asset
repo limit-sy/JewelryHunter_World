@@ -13,6 +13,7 @@ TagManager:
   - Enemy
   - Item
   - ItemBox
+  - Arrow
   layers:
   - Default
   - TransparentFX
@@ -24,8 +25,8 @@ TagManager:
   - Wall
   - Shell
   - Enemy
-  - 
-  - 
+  - Arrow
+  - Boss
   - 
   - 
   - 
