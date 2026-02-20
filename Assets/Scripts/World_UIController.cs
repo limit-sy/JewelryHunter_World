@@ -69,7 +69,7 @@ public class World_UIController : MonoBehaviour
             currentKeys = GameManager.keys;
             keyText.text = currentKeys.ToString();
         }
-        // 把握していた矢の数とGameManagerの屋の数に違いが出たら、正しい数となるようUIを更新
+        // 把握していた矢の数とGameManagerの矢の数に違いが出たら、正しい数となるようUIを更新
         if (currentArrows != GameManager.arrows)
         {
             currentArrows = GameManager.arrows;

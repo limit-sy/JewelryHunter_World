@@ -32,6 +32,25 @@ public class PlayerController : MonoBehaviour
 
     GameManager gm; // GameManagerスクリプト
 
+    public static int playerLife = 10;  //Playerの体力
+
+    bool inDamage;  // ダメージ管理フラグ
+
+    // PlayerLifeの回復メソッド
+    static public void PlayerRecovery(int life)
+    {
+        playerLife += life; // 引数life分だけ回復
+        if (playerLife > 10) playerLife = 10;
+        //if (playerLife + life > 10)
+        //{
+        //    playerLife = 10;
+        //}
+        //else
+        //{
+        //    playerLife += life;     // 引数life分だけ回復
+        //}
+    }
+
     void OnMove(InputValue value)
     {
         // 取得した情報をVector2形式で抽出
@@ -63,13 +82,31 @@ public class PlayerController : MonoBehaviour
 
         // GameObject型のアタッチされている特定のコンポーネントを探してくるメソッド
         gm = GameObject.FindFirstObjectByType<GameManager>();
+
+        playerLife = 10;    // 体力を全開にする
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (GameManager.gameState != GameState.InGame)
+        // ゲームのステータスがInGameじゃない時、またはダメージ管理フラグがtrueの時
+        if (GameManager.gameState != GameState.InGame || inDamage)
         {
+            // もしダメージ管理フラグが立っていたら点滅処理
+            if (inDamage)
+            {
+                // Sin関数の角度に経過時間(一定リズムの値)を与えると、等間隔でプラスとマイナスの結果が得られる。
+                float val;
+                val = Mathf.Sin(Time.time * 50);
+                if (val > 0)
+                {
+                    GetComponent<SpriteRenderer>().enabled = true;
+                }
+                else
+                {
+                    GetComponent<SpriteRenderer>().enabled = false;
+                }
+            }
             return; // Updateを中断
         }
 
@@ -134,7 +171,8 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (GameManager.gameState != GameState.InGame)
+        // ゲームのステータスがInGameじゃない時、またはダメージ管理フラグがtrueの時
+        if (GameManager.gameState != GameState.InGame || inDamage)
         {
             return;     // FixedUpdateを中断
         }
@@ -175,6 +213,15 @@ public class PlayerController : MonoBehaviour
             }
             score = 0; //次に備えてスコアをリセット
             Destroy(collision.gameObject);              // アイテム削除する
+        }
+        else if (collision.gameObject.tag == "Enemy")
+        {
+            // ダメージ中でなければ
+            if (!inDamage)
+            {
+                // ぶつかった相手のオブジェクト情報を引数
+                GetDamage(collision.gameObject);
+            }
         }
     }
 
@@ -226,8 +273,38 @@ public class PlayerController : MonoBehaviour
         return axisH;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    // ダメージメソッド
+    void GetDamage(GameObject target)
     {
+        // プレイ中のみ発動
+        if (GameManager.gameState == GameState.InGame)
+        {
+            playerLife -= 1;    // 体力を減少
+            // まだゲームオーバーじゃなければ
+            if (playerLife > 0)
+            {
+                // ぶつかった相手と反対方向にノックバック
+                rbody.linearVelocity = new Vector2(0, 0);
+                Vector3 v = (transform.position - target.transform.position).normalized;
+                rbody.AddForce(new Vector2(v.x * 4, v.y * 4), ForceMode2D.Impulse);
+                // ダメージ管理フラグを立てる
+                inDamage = true;
+                // 時間差でダメージ管理フラグを下ろす。
+                Invoke("DamageEnd", 0.25f);
+            }
+            // playerLifeが0以下になってしまったら
+            else
+            {
+                GameOver();
+            }
+        }
+    }
 
+    // ダメージ管理フラグをOFFにするメソッド
+    void DamageEnd()
+    {
+        inDamage = false;
+        // ダメージ終了(点滅終了)と同時に確実に姿を表示させる
+        GetComponent<SpriteRenderer>().enabled = true;
     }
 }

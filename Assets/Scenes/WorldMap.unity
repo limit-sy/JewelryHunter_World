@@ -17133,7 +17133,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   doorNumber: 0
-  sceneName: Base
+  sceneName: Stage1
   opened: 0
 --- !u!1 &1061176027
 GameObject:

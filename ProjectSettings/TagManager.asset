@@ -9,6 +9,10 @@ TagManager:
   - ScoreItem
   - Entrance
   - WorldUI
+  - Switch
+  - Enemy
+  - Item
+  - ItemBox
   layers:
   - Default
   - TransparentFX
