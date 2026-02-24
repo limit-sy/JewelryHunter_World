@@ -85,6 +85,7 @@ public class GameManager : MonoBehaviour
     //次へ
     public void Next()
     {
+        SaveDataManager.SaveGameData(); // ワールドマップに戻るタイミングでオートセーブ
         SceneManager.LoadScene(nextSceneName);
     }
 

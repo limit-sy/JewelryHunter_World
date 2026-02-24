@@ -674,7 +674,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35731d4c004fbbb4d986e25971cacc55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
-  nextSceneName: Result
+  nextSceneName: WorldMap
   meGameClear: {fileID: 8300000, guid: 97776aa293751474bb40cc358b0a3643, type: 3}
   meGameOver: {fileID: 8300000, guid: d43f5b07f4837a041b0e2094fe9a73e2, type: 3}
   isGameClear: 0
