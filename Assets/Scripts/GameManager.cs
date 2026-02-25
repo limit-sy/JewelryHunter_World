@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -65,15 +66,23 @@ public class GameManager : MonoBehaviour
             soundPlayer.Stop(); // ステージ曲を止める
             soundPlayer.PlayOneShot(meGameClear);   // ゲームクリアの音を1回だけ鳴らす
             isGameClear = true; // ゲームクリアフラグを立てる
-            gameState = GameState.GameEnd;  // ゲームの状態を更新
+            //gameState = GameState.GameEnd;  // ゲームの状態を更新
+            Invoke("GameStatusChangeToGameEnd", 0.02f);
         }
         else if (gameState == GameState.GameOver)
         {
             soundPlayer.Stop(); // ステージ曲を止める
             soundPlayer.PlayOneShot(meGameOver);   // ゲームオーバーの音を1回だけ鳴らす
             isGameOver = true;  // ゲームオーバーフラグを立てる
-            gameState = GameState.GameEnd;  // ゲームの状態を更新
+            //gameState = GameState.GameEnd;  // ゲームの状態を更新
+            Invoke("GameStatusChangeToGameEnd", 0.02f);
         }
+    }
+
+    void GameStatusChangeToGameEnd()
+    {
+        // ゲームの状態をGameEndに更新
+        gameState = GameState.GameEnd;
     }
 
     //リスタート

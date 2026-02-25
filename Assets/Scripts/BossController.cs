@@ -130,13 +130,25 @@ public class BossController : MonoBehaviour
     void BossSpriteOff()
     {
         GetComponent<SpriteRenderer>().enabled = false;
+
+        // ★追加：プレイヤーを探してクリア処理(Goal)を実行する
+        if (player != null)
+        {
+            // PlayerControllerスクリプトを取得してGoalメソッドを叩く
+            PlayerController playerController = player.GetComponent<PlayerController>();
+            playerController.Goal();
+        }
+        else
+        {
+            Debug.LogError("プレイヤーが見つかりません！Tagが 'Player' になっているか確認してください。");
+        }
         Invoke("BossDestroy", 3.0f);
     }
 
     // ステージクリアのためにGoalメソッド発動、Bossを削除
     void BossDestroy()
     {
-        player.GetComponent<PlayerController>().Goal();
+        //player.GetComponent<PlayerController>().Goal();
         Destroy(gameObject);
     }
 

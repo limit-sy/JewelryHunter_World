@@ -67,6 +67,7 @@ public class UIController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log("GameManager.gameState" + GameManager.gameState);
         if (GameManager.gameState == GameState.GameClear)
         {
             // ゲームクリア
@@ -165,4 +166,25 @@ public class UIController : MonoBehaviour
         int currentScore = stageScore + GameManager.totalScore;
         scoreText.GetComponent<TextMeshProUGUI>().text = currentScore.ToString();
     }
+
+    //public void ShowGameClearUI()
+    //
+     //   mainImage.SetActive(true);
+    //    panel.SetActive(true);
+    //
+    //    Button bt = restartButton.GetComponent<Button>();
+    //    bt.interactable = false;
+    //    mainImage.GetComponent<Image>().sprite = gameClearSpr;
+
+        // スコア計算などの処理もここに移すと1回だけ実行されるので安全です
+    //    if (timeController != null)
+    //    {
+    //        timeController.IsTimeOver();
+    //        int time = (int)timeController.GetDisplayTime();
+    //        GameManager.totalScore += time * 10;
+    //    }
+    //    GameManager.totalScore += stageScore;
+    //stageScore = 0;
+    //    UpdateScore();
+    //}
 }
