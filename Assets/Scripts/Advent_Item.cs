@@ -45,6 +45,9 @@ public class Advent_Item : MonoBehaviour
                     break;
             }
 
+            // アイテムゲット
+            SoundManager.currentSoundManager.PlaySE(SEType.ItemGet);
+
             // アイテムゲット演出
             GetComponent<CircleCollider2D>().enabled = false;      // 当たりを消す
             Rigidbody2D rbody = GetComponent<Rigidbody2D>();

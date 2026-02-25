@@ -52,6 +52,8 @@ public class EntranceController : MonoBehaviour
                 // 未開錠の場合
                 else if (GameManager.keys > 0)  // 鍵を持っている
                 {
+                    // 鍵を開ける音を鳴らす
+                    SoundManager.currentSoundManager.PlaySE(SEType.DoorOpen);
                     messageText.text = "新たなステージへの扉を開けた！";
                     GameManager.keys--;     // 鍵を消耗
                     opened = true;          // 開錠フラグを立てる
@@ -64,6 +66,8 @@ public class EntranceController : MonoBehaviour
                 // 未開錠で鍵も持っていない場合
                 else
                 {
+                    // 鍵の音を鳴らす
+                    SoundManager.currentSoundManager.PlaySE(SEType.DoorClosed);
                     messageText.text = "鍵が足りません！";
                     announcement = true;    // アナウンス中
                 }

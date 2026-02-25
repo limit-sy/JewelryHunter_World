@@ -71,6 +71,9 @@ public class BossController : MonoBehaviour
                 // 体力がなくなったら死亡
                 if (hp <= 0)
                 {
+                    // 死亡の音を鳴らす
+                    SoundManager.currentSoundManager.PlaySE(SEType.Enemykilled);
+
                     // Boss Collider2つ持っているので、ある分だけゲットして配列に格納
                     CircleCollider2D[] colliders = GetComponents<CircleCollider2D>();
                     colliders[0].enabled = false;

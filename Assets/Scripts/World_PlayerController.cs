@@ -55,7 +55,7 @@ public class World_PlayerController : MonoBehaviour
         {
             dir = Direction.right;
         }
-        else if ((angleZ >= 91 && angleZ <= 180) || (angleZ >= -180 && angleZ <= -91))
+        else if (angleZ >= 91 && angleZ <= 180 || angleZ >= -180 && angleZ <= -91)
         {
             dir = Direction.left;
         }

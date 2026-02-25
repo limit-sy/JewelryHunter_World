@@ -128,6 +128,8 @@ public class EnemyController : MonoBehaviour
                     // 死亡した場合の演出
                     if (enemyLife <= 0)
                     {
+                        // 死亡の音を鳴らす
+                        SoundManager.currentSoundManager.PlaySE(SEType.Enemykilled);
                         rbody.linearVelocity = Vector2.zero;    // 動きを止める
                         GetComponent<CircleCollider2D>().enabled = false;
                         rbody.AddForce(new Vector2(0, 3), ForceMode2D.Impulse);
