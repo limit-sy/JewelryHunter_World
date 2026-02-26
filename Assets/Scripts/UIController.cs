@@ -67,7 +67,7 @@ public class UIController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("GameManager.gameState" + GameManager.gameState);
+        //Debug.Log("GameManager.gameState" + GameManager.gameState);
         if (GameManager.gameState == GameState.GameClear)
         {
             // ƒQ[ƒ€ƒNƒŠƒA
