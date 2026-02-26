@@ -6,7 +6,7 @@ public class ArrowGenerator : MonoBehaviour
     GameObject player;
     public Sprite itemBoxClose; // 指定したオブジェクトの絵を閉じた絵にする
     public Sprite itemBoxOpen;  // 指定したオブジェクトの絵を開けた絵にする
-    private bool isWaitingForRecovery = false;      // 復活待機中フラグ
+    //private bool isWaitingForRecovery = false;      // 復活待機中フラグ
     public static bool isRecover;   // アイテム補充完了フラグ
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
