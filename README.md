@@ -9,7 +9,7 @@
 Unityで2Dゲーム作成を学ぶにあたって、基本的な機能が網羅されている作品となるよう頑張りました。ワールドマップ上で好きなステージのロックを解除して挑戦できることで、プレイする度に異なる遊び方・攻略の仕方ができるように工夫しました。  
 アクションゲームとしての楽しさが出るようにたくさんのギミックをちりばめています。
 
-[サンプルゲームをプレイ](https://limit-sy.github.io/jewelryhunter_world_gameplay/)
+<a href="https://limit-sy.github.io/jewelryhunter_world_gameplay/" target="_blank">[サンプルゲームをプレイ]</a>
 
 ### 作品の遊び方
 タイトル→ワールドマップ→ロックのかかっていないステージ選択  
