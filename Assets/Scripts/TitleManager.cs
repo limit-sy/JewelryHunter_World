@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;  // シーンの切り替えに必要
 using UnityEngine.InputSystem;
 using UnityEngine.UI;     // InputSystem を使うのに必要
+using System.Collections;
 
 public class TitleManager : MonoBehaviour
 {
@@ -38,8 +39,10 @@ public class TitleManager : MonoBehaviour
             continueButton.GetComponent<Button>().interactable = false; // ボタン機能を無効
         }
 
-        SoundManager.currentSoundManager.StopBGM(); // BGMをストップ
-        SoundManager.currentSoundManager.PlayBGM(BGMType.Title);    // タイトルのBGMを再生
+        //SoundManager.currentSoundManager.StopBGM(); // BGMをストップ
+        //SoundManager.currentSoundManager.PlayBGM(BGMType.Title);    // タイトルのBGMを再生
+        //コルーチン
+        StartCoroutine(TitleBGMStartCol());
     }
 
     // Update is called once per frame
@@ -76,5 +79,13 @@ public class TitleManager : MonoBehaviour
     {
         SaveDataManager.LoadGameData(); // セーブデータを読み込む
         SceneManager.LoadScene(sceneName);
+    }
+
+    //コルーチン
+    IEnumerator TitleBGMStartCol()
+    {
+        yield return new WaitForSeconds(1.0f);
+        //SoundManager.currentSoundManager.StopBGM();
+        SoundManager.currentSoundManager.PlayBGM(BGMType.Title);
     }
 }
